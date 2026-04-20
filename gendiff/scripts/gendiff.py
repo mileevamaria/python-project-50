@@ -1,13 +1,6 @@
 import argparse
-import json
 
-DATA_FILE_1_PATH = '../data/file1.json'
-DATA_FILE_2_PATH = '../data/file2.json'
-
-
-def parse(filepath: str) -> dict:
-    with open(filepath, 'r') as f:
-        return json.load(f)
+from gendiff import generate_diff
 
 
 def main():
@@ -18,8 +11,8 @@ def main():
     parser.add_argument('second_file')
     parser.add_argument('-f', '--format', help='set format of output')
     args = vars(parser.parse_args())
-    print(parse(args['first_file']))
-    print(parse(args['second_file']))
+    diff = generate_diff(args['first_file'], args['second_file'])
+    print(diff)
 
 
 if __name__ == '__main__':
