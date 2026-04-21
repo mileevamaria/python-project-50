@@ -31,6 +31,12 @@ jobs:
       run: |
         make test-coverage
 
+    - name: Debug coverage
+      run: |
+        pwd
+        ls -la
+        test -f coverage.xml && echo "FOUND" || echo "NOT FOUND"
+
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v7
       with:
