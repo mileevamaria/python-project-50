@@ -11,3 +11,9 @@ brew install uv
 make build
 make package-install
 ```
+
+## Парсинг json
+[![asciicast](https://asciinema.org/a/xpr29XHK1E2tPILF.svg)](https://asciinema.org/a/xpr29XHK1E2tPILF)
+
+## Парсинг yaml/yml
+[![asciicast](https://asciinema.org/a/TdzlSUPCr9KLLvHg.svg)](https://asciinema.org/a/TdzlSUPCr9KLLvHg)
