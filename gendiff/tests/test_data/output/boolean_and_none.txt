@@ -1,0 +1,5 @@
+{
+  - a: True
+  + a: False
+    b: None
+}
