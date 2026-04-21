@@ -2,6 +2,8 @@ lint:
 	uv run ruff check gendiff
 install:
 	uv sync
+test:
+	pytest
 build:
 	uv build
 package-install:
