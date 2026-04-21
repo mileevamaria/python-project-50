@@ -11,4 +11,4 @@ package-install:
 gendiff:
 	uv run gendiff
 test-coverage:
-	uv run pytest --cov=gendiff --cov-report xml
+	uv run pytest --cov=gendiff --cov-report xml:coverage.xml
