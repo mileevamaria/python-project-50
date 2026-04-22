@@ -12,8 +12,6 @@ def test_stylish():
     assert result == expected
 
     
-
-
 def test_plain():
     file_path1 = os.path.join(TEST_DATA_DIR, 'a.json')
     file_path2 = os.path.join(TEST_DATA_DIR, 'b.json')
