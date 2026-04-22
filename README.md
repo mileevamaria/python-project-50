@@ -24,7 +24,7 @@ options::
 
 ## Установка
 ```shell
-git clone git@github.com:mileevamaria/python-project-49.git
+git clone git@github.com:mileevamaria/python-project-50.git
 brew install uv
 make build
 make package-install
