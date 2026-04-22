@@ -1,6 +1,6 @@
 import os
 
-from gendiff import load_json, load_yaml
+from gendiff.tools import load_json, load_yaml
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_DATA_PATH = os.path.join(TEST_DIR, 'test_data/input')
