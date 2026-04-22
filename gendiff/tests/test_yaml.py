@@ -1,7 +1,7 @@
 import os
 
 from gendiff import generate_diff
-from gendiff.tests import read_txt_file, TEST_DATA_DIR
+from gendiff.tests import TEST_DATA_DIR, read_txt_file
 
 
 def test_stylish():
