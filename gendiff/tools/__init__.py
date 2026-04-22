@@ -1,4 +1,3 @@
-from .formatter import Formatter
 from .tools import (
     generate_diff,
     load_json,
@@ -11,5 +10,4 @@ __all__ = (
     'parse_command',
     'load_json',
     'load_yaml',
-    'Formatter',
 )
