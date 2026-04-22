@@ -56,10 +56,12 @@ def create_diff_data(data1: dict, data2: dict):
 
 
 def generate_diff(
-    data1: dict, 
-    data2: dict, 
-    format_name: str | None = 'stylish',
+    file_path1: str, 
+    file_path2: str, 
+    format_name: str,
 ):
+    load_func = load_json if file_path1.endswith('.json') else load_yaml
+    data1, data2 = load_func(file_path1), load_func(file_path2)  
     diff = create_diff_data(data1, data2)
     match format_name:
         case 'plain':
