@@ -58,7 +58,7 @@ def create_diff_data(data1: dict, data2: dict):
 def generate_diff(
     data1: dict, 
     data2: dict, 
-    format_name: str | None,
+    format_name: str | None = 'stylish',
 ):
     diff = create_diff_data(data1, data2)
     match format_name:
