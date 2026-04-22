@@ -1,0 +1,7 @@
+Property 'alpha' was updated. From 1 to 2
+Property 'beta.new' was added with value: 99
+Property 'beta.y' was removed
+Property 'beta.z.deep' was updated. From 'value' to 'changed'
+Property 'delta.nested' was updated. From [complex value] to 'replaced'
+Property 'epsilon' was added with value: 'added'
+Property 'gamma' was updated. From 'text' to null

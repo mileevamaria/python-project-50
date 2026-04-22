@@ -1,0 +1,15 @@
+{
+  "alpha": 2,
+  "beta": {
+    "x": 10,
+    "z": {
+      "deep": "changed"
+    },
+    "new": 99
+  },
+  "gamma": null,
+  "epsilon": "added",
+  "delta": {
+    "nested": "replaced"
+  }
+}

@@ -3,7 +3,7 @@ import json
 
 import yaml
 
-from .format import stylish
+from gendiff.formatеrs import jsonify, plain, stylish
 
 
 def load_json(filepath: str) -> dict:
@@ -58,15 +58,19 @@ def create_diff_data(data1: dict, data2: dict):
 def generate_diff(
     data1: dict, 
     data2: dict, 
-    format_name: str = 'stylish',
+    format_name: str | None,
 ):
     diff = create_diff_data(data1, data2)
     match format_name:
-        case 'stylish':
+        case 'plain':
+            return plain(diff)
+        case 'json':
+            return jsonify(diff)
+        case _:
             return stylish(diff)
 
 
-def parse_command() -> tuple[dict, dict]:
+def parse_command() -> tuple[dict, dict, str | None]:
     parser = argparse.ArgumentParser(
         prog='gendiff', 
         description='Compares two configuration files and shows a difference.')
@@ -85,4 +89,5 @@ def parse_command() -> tuple[dict, dict]:
 
     data1 = load_func(args['first_file'])
     data2 = load_func(args['second_file'])
-    return data1, data2
+    format = args.get('format', None)
+    return data1, data2, format

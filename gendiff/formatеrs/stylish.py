@@ -1,11 +1,17 @@
-def format_value(value, depth):  # noqa: C901
-    indent = ' ' * (depth * 4)
-    if not isinstance(value, dict):
+def _format_str_value(value, depth: int) -> str:  # noqa: C901
+    if value is True:
+        return 'true'
+    elif value is False:
+        return 'false'
+    elif value is None:
+        return 'null'
+    elif not isinstance(value, dict):
         return str(value)
     
+    indent = ' ' * (depth * 4)
     lines = ['{']
     for k, v in value.items():
-        lines.append(f"{indent}    {k}: {format_value(v, depth + 1)}")
+        lines.append(f"{indent}    {k}: {_format_str_value(v, depth + 1)}")
     lines.append(f"{indent}}}")
     return '\n'.join(lines)
 
@@ -24,20 +30,20 @@ def stylish(diff: list, depth: int = 1) -> str:
                 lines.append(f"{indent}  {key}: {children}")
 
             case 'added':
-                value = format_value(node['value'], depth)
+                value = _format_str_value(node['value'], depth)
                 lines.append(f"{indent}+ {key}: {value}")
 
             case 'removed':
-                value = format_value(node['value'], depth)
+                value = _format_str_value(node['value'], depth)
                 lines.append(f"{indent}- {key}: {value}")
 
             case 'unchanged':
-                value = format_value(node['value'], depth)
+                value = _format_str_value(node['value'], depth)
                 lines.append(f"{indent}  {key}: {value}")
 
             case 'changed':
-                old = format_value(node['old_value'], depth)
-                new = format_value(node['new_value'], depth)
+                old = _format_str_value(node['old_value'], depth)
+                new = _format_str_value(node['new_value'], depth)
                 lines.append(f"{indent}- {key}: {old}")
                 lines.append(f"{indent}+ {key}: {new}")
 

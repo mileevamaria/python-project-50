@@ -1,0 +1,66 @@
+[
+  {
+    "key": "alpha",
+    "type": "changed",
+    "old_value": 1,
+    "new_value": 2
+  },
+  {
+    "key": "beta",
+    "type": "nested",
+    "children": [
+      {
+        "key": "new",
+        "type": "added",
+        "value": 99
+      },
+      {
+        "key": "x",
+        "type": "unchanged",
+        "value": 10
+      },
+      {
+        "key": "y",
+        "type": "removed",
+        "value": 20
+      },
+      {
+        "key": "z",
+        "type": "nested",
+        "children": [
+          {
+            "key": "deep",
+            "type": "changed",
+            "old_value": "value",
+            "new_value": "changed"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "delta",
+    "type": "nested",
+    "children": [
+      {
+        "key": "nested",
+        "type": "changed",
+        "old_value": {
+          "a": true
+        },
+        "new_value": "replaced"
+      }
+    ]
+  },
+  {
+    "key": "epsilon",
+    "type": "added",
+    "value": "added"
+  },
+  {
+    "key": "gamma",
+    "type": "changed",
+    "old_value": "text",
+    "new_value": null
+  }
+]
