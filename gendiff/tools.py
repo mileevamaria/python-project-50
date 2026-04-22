@@ -70,7 +70,7 @@ def generate_diff(
             return stylish(diff)
 
 
-def parse_command() -> tuple[dict, dict, str | None]:
+def parse_command() -> tuple[str, str, str]:
     parser = argparse.ArgumentParser(
         prog='gendiff', 
         description='Compares two configuration files and shows a difference.')
@@ -78,16 +78,5 @@ def parse_command() -> tuple[dict, dict, str | None]:
     parser.add_argument('second_file')
     parser.add_argument(
         '-f', '--format', default='stylish', help='set format of output')
-    args = vars(parser.parse_args())
-
-    # json
-    if args['first_file'].endswith('.json'):
-        load_func = load_json
-    # yml, yaml
-    else:
-        load_func = load_yaml
-
-    data1 = load_func(args['first_file'])
-    data2 = load_func(args['second_file'])
-    format = args.get('format', None)
-    return data1, data2, format
+    first_file, second_file, format = vars(parser.parse_args()).values()
+    return first_file, second_file, format
