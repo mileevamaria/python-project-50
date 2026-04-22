@@ -58,7 +58,7 @@ def create_diff_data(data1: dict, data2: dict):
 def generate_diff(
     file_path1: str, 
     file_path2: str, 
-    format_name: str,
+    format_name: str | None = 'stylish',
 ):
     load_func = load_json if file_path1.endswith('.json') else load_yaml
     data1, data2 = load_func(file_path1), load_func(file_path2)  
